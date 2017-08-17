@@ -10,7 +10,7 @@ Not really sure about this yet. Eventually I will likely want to have this avail
 
 ## Commands
 
-install (will check for env variables, if empty it will require either a path to a credentials file or a manual entry)
+install (will check for env variables, if empty it will require either a path to a credentials file or a manual entry)(hopefully won't be needed)
 
 uninstall (remove aws credentials)
 
