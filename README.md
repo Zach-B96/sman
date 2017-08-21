@@ -8,20 +8,24 @@ The point of this program is to make the management of SSH keys simple and easy.
 
 Not really sure about this yet. Eventually I will likely want to have this available both as an npm insatllation as well as possibly through homebrew.
 
-## Commands
+## Admin Commands
 
-install (will check for env variables, if empty it will require either a path to a credentials file or a manual entry)(hopefully won't be needed)
-
-uninstall (remove aws credentials)
+uninstall (remove ssh credentials from s3, wipe entire directory, should be confirmation that they mean to do this)
 
 add (the user must first have access to the s3 bucket) (initially this will only support adding users. Later the -u option will support users and -s, servers. This command does as it would appear: it creates an ssh key for a user and adjusts the known hosts for all servers. The user can obtain the ssh key from their s3 bucket)
 
 remove (initially this will only support adding users. Later the -u option will support users and -s, servers. This command removes the local SSH key from that user, adjusts the known hosts on all servers to not allow that ssh key, and deletes the ssh key from s3)
 
-[LATER] transfer (transer admin privledges) 
+[LATER] transfer (transer admin privledges) (this will add a password file to the directory in s3 that can only be read by the current admin and the next admin, when the next admin enters that password correctly, the file is deleted)
 
 rotate (rotate ssh keys)
 
 schedule (scheudle key rotation) (-x option to remove schedule)
 
 help
+
+## User Commands
+
+sman (running just this command will pull the ssh key already created for you by your admin to be your ssh key)
+
+[LATER] transfer {password} (command to become an admin. By default the admin is the original creator of the directory. The password must first be created by the admin and will be stored in s3 and then when this command is run, that file will be deleted)
